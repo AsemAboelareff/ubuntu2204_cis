@@ -1,0 +1,18 @@
+#!/bin/bash
+
+l_mname="{{application}}" # set module name 
+
+if ! modprobe -n -v $l_mname | grep -P -- '^h*install /bin/(true|false)'; then 
+  echo " - setting module: $l_mname to be not loadable"
+  echo "install $l_mname /bin/false" >> /etc/modprobe.d/$l_mname.conf
+fi
+
+if ! lsmod | grep '$l_mname' > /dev/null 2>&1; then 
+  echo " - unloading module $l_mname"
+  modprobe -r $l_mname
+fi
+
+if ! grep -P 'blacklist[\s]+'$l_mname'' /etc/modprobe.d/*; then 
+  echo " - deny listing $l_mname"
+  echo  "blacklist $l_mname" >> /etc/modprobe.d/$l_mname.conf 
+fi

@@ -338,11 +338,18 @@
       - rule_3.3.9
 
 - name: "SCORED | 3.4.1 | PATCH | Ensure DCCP is disabled"
-  lineinfile:
-      dest: /etc/modprobe.d/CIS.conf
-      regexp: "^(#)?install dccp(\\s|$)"
-      line: "install dccp /bin/true"
-      create: true
+  block:
+    - name: copy dccp script
+      vars:
+        application: dccp
+      template:
+        src: blacklist.j2
+        dest: /tmp/dccp.sh
+        owner: root
+        group: root
+        mode: 0700
+    - name: run dccp.sh
+      shell: sudo bash /tmp/dccp.sh
   when:
       - ubuntu2004cis_rule_3_4_1
   tags:
@@ -352,11 +359,18 @@
       - rule_3.4.1
 
 - name: "SCORED | 3.4.2 | PATCH | Ensure SCTP is disabled"
-  lineinfile:
-      dest: /etc/modprobe.d/CIS.conf
-      regexp: "^(#)?install sctp(\\s|$)"
-      line: "install sctp /bin/true"
-      create: true
+  block:
+    - name: copy sctp script
+      vars:
+        application: sctp
+      template:
+        src: blacklist.j2
+        dest: /tmp/sctp.sh
+        owner: root
+        group: root
+        mode: 0700
+    - name: run sctp.sh 
+      shell: sudo bash /tmp/sctp.sh   
   when:
       - ubuntu2004cis_rule_3_4_2
   tags:
@@ -366,11 +380,18 @@
       - rule_3.4.2
 
 - name: "SCORED | 3.4.3 | PATCH | Ensure RDS is disabled"
-  lineinfile:
-      dest: /etc/modprobe.d/CIS.conf
-      regexp: "^(#)?install rds(\\s|$)"
-      line: "install rds /bin/true"
-      create: true
+  block:
+    - name: copy rds script
+      vars:
+        application: rds
+      template:
+        src: blacklist.j2
+        dest: /tmp/rds.sh
+        owner: root
+        group: root
+        mode: 0700
+    - name: run rds.sh 
+      shell: sudo bash /tmp/rds.sh    
   when:
       - ubuntu2004cis_rule_3_4_3
   tags:
@@ -380,11 +401,18 @@
       - rule_3.4.3
 
 - name: "SCORED | 3.4.4 | PATCH | Ensure TIPC is disabled"
-  lineinfile:
-      dest: /etc/modprobe.d/CIS.conf
-      regexp: "^(#)?install tipc(\\s|$)"
-      line: "install tipc /bin/true"
-      create: true
+  block:
+    - name: copy tipc script
+      vars:
+        application: tipc
+      template:
+        src: blacklist.j2
+        dest: /tmp/tipc.sh
+        owner: root
+        group: root
+        mode: 0700
+    - name: run tipc.sh
+      shell: sudo bash /tmp/tipc.sh
   when:
       - ubuntu2004cis_rule_3_4_4
   tags:

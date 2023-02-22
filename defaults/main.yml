@@ -4,11 +4,11 @@ ubuntu2004cis_skip_for_travis: false
 
 ubuntu2004cis_notauto: false
 ubuntu2004cis_section1: true
-ubuntu2004cis_section2: true
+ubuntu2004cis_section2: false
 ubuntu2004cis_section3: true
 ubuntu2004cis_section4: true
 ubuntu2004cis_section5: true
-ubuntu2004cis_section6: true
+ubuntu2004cis_section6: false
 
 ubuntu2004cis_selinux_disable: false
 ubuntu2004cis_auditd_disable: false
@@ -190,6 +190,14 @@ ubuntu2004cis_rule_4_1_14: true
 ubuntu2004cis_rule_4_1_15: true
 ubuntu2004cis_rule_4_1_16: true
 ubuntu2004cis_rule_4_1_17: true
+ubuntu2004cis_rule_4_1_18: true
+ubuntu2004cis_rule_4_1_19: true
+ubuntu2004cis_rule_4_1_20: true
+ubuntu2004cis_rule_4_1_21: true
+ubuntu2004cis_rule_4_1_22: true
+ubuntu2004cis_rule_4_1_23: true
+ubuntu2004cis_rule_4_1_24: true
+ubuntu2004cis_rule_4_1_25: true
 ubuntu2004cis_rule_4_2_1_1: true
 ubuntu2004cis_rule_4_2_1_2: true
 ubuntu2004cis_rule_4_2_1_3: true
@@ -204,51 +212,51 @@ ubuntu2004cis_rule_4_3: true
 ubuntu2004cis_rule_4_4: true
 
 # Section 5 rules
-ubuntu2004cis_rule_5_1_1: true
-ubuntu2004cis_rule_5_1_2: true
-ubuntu2004cis_rule_5_1_3: true
-ubuntu2004cis_rule_5_1_4: true
-ubuntu2004cis_rule_5_1_5: true
-ubuntu2004cis_rule_5_1_6: true
-ubuntu2004cis_rule_5_1_7: true
-ubuntu2004cis_rule_5_1_8: true
-ubuntu2004cis_rule_5_1_9: true
-ubuntu2004cis_rule_5_2_1: true
-ubuntu2004cis_rule_5_2_2: true
-ubuntu2004cis_rule_5_2_3: true
-ubuntu2004cis_rule_5_2_4: true
+ubuntu2004cis_rule_5_1_1: false
+ubuntu2004cis_rule_5_1_2: false
+ubuntu2004cis_rule_5_1_3: false
+ubuntu2004cis_rule_5_1_4: false
+ubuntu2004cis_rule_5_1_5: false
+ubuntu2004cis_rule_5_1_6: false
+ubuntu2004cis_rule_5_1_7: false
+ubuntu2004cis_rule_5_1_8: false
+ubuntu2004cis_rule_5_1_9: false
+ubuntu2004cis_rule_5_2_1: false
+ubuntu2004cis_rule_5_2_2: false
+ubuntu2004cis_rule_5_2_3: false
+ubuntu2004cis_rule_5_2_4: false
 ubuntu2004cis_rule_5_2_5: true
-ubuntu2004cis_rule_5_2_6: true
-ubuntu2004cis_rule_5_2_7: true
-ubuntu2004cis_rule_5_2_8: true
-ubuntu2004cis_rule_5_2_9: true
-ubuntu2004cis_rule_5_2_10: true
-ubuntu2004cis_rule_5_2_11: true
-ubuntu2004cis_rule_5_2_12: true
-ubuntu2004cis_rule_5_2_13: true
-ubuntu2004cis_rule_5_2_14: true
-ubuntu2004cis_rule_5_2_15: true
-ubuntu2004cis_rule_5_2_16: true
-ubuntu2004cis_rule_5_2_17: true
-ubuntu2004cis_rule_5_2_18: true
-ubuntu2004cis_rule_5_2_19: true
+ubuntu2004cis_rule_5_2_6: false
+ubuntu2004cis_rule_5_2_7: false
+ubuntu2004cis_rule_5_2_8: false
+ubuntu2004cis_rule_5_2_9: false
+ubuntu2004cis_rule_5_2_10: false
+ubuntu2004cis_rule_5_2_11: false
+ubuntu2004cis_rule_5_2_12: false
+ubuntu2004cis_rule_5_2_13: false
+ubuntu2004cis_rule_5_2_14: false
+ubuntu2004cis_rule_5_2_15: false
+ubuntu2004cis_rule_5_2_16: false
+ubuntu2004cis_rule_5_2_17: false
+ubuntu2004cis_rule_5_2_18: false
+ubuntu2004cis_rule_5_2_19: false
 ubuntu2004cis_rule_5_2_20: true
-ubuntu2004cis_rule_5_2_21: true
-ubuntu2004cis_rule_5_2_22: true
-ubuntu2004cis_rule_5_3_1: true
-ubuntu2004cis_rule_5_3_2: true
-ubuntu2004cis_rule_5_3_3: true
-ubuntu2004cis_rule_5_3_4: true
-ubuntu2004cis_rule_5_4_1_1: true
-ubuntu2004cis_rule_5_4_1_2: true
-ubuntu2004cis_rule_5_4_1_3: true
-ubuntu2004cis_rule_5_4_1_4: true
-ubuntu2004cis_rule_5_4_1_5: true
-ubuntu2004cis_rule_5_4_2: true
-ubuntu2004cis_rule_5_4_3: true
-ubuntu2004cis_rule_5_4_4: true
-ubuntu2004cis_rule_5_4_5: true
-ubuntu2004cis_rule_5_5: true
+ubuntu2004cis_rule_5_2_21: false
+ubuntu2004cis_rule_5_2_22: false
+ubuntu2004cis_rule_5_3_1: false
+ubuntu2004cis_rule_5_3_2: false
+ubuntu2004cis_rule_5_3_3: false
+ubuntu2004cis_rule_5_3_4: false
+ubuntu2004cis_rule_5_4_1_1: false
+ubuntu2004cis_rule_5_4_1_2: false
+ubuntu2004cis_rule_5_4_1_3: false
+ubuntu2004cis_rule_5_4_1_4: false
+ubuntu2004cis_rule_5_4_1_5: false
+ubuntu2004cis_rule_5_4_2: false
+ubuntu2004cis_rule_5_4_3: false
+ubuntu2004cis_rule_5_4_4: false
+ubuntu2004cis_rule_5_4_5: false
+ubuntu2004cis_rule_5_5: false
 ubuntu2004cis_rule_5_6: false
 
 # Section 6 rules
@@ -325,7 +333,7 @@ ubuntu2004cis_is_router: false
 ubuntu2004cis_ipv6_required: true
 
 # AIDE
-ubuntu2004cis_config_aide: true
+ubuntu2004cis_config_aide: false
 # AIDE cron settings
 ubuntu2004cis_aide_cron:
   cron_user: root

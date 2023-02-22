@@ -34,20 +34,33 @@
       - filesystems
       - rule_1.1.1.1
 
-- name: "SCORED | 1.1.1.2 | PATCH | Ensure mounting of freevxfs filesystems is disabled"
-  lineinfile:
-      dest: /etc/modprobe.d/CIS.conf
-      regexp: "^(#)?install freevxfs"
-      line: "install freevxfs /bin/true"
-      state: present
-      create: true
+- name: "MANUAL | 1.1.1.2 | PATCH | Ensure mounting of squashfs filesystems is disabled"
+  block:
+      - name: copy squashfs script
+        vars:
+          application: squashfs
+        template:
+            src: blacklist.j2
+            dest: /tmp/squashfs.sh
+            owner: root
+            group: root
+            mode: 0700
+      - name: "MANUAL | 1.1.1.2 | PATCH | Ensure mounting of squashfs filesystems is disabled | Edit modprobe config"
+        shell: sudo bash /tmp/squashfs.sh
+
+      - name: "MANUAL | 1.1.1.2 | PATCH | Ensure mounting of squashfs filesystems is disabled | Disable squashfs"
+        modprobe:
+            name: squashfs
+            state: absent
+        ignore_errors: true
+        when: ansible_connection != 'docker'
   when:
       - ubuntu2004cis_rule_1_1_1_2
   tags:
       - level1
       - scored
       - patch
-      - freevxfs
+      - squashfs
       - filesystems
       - rule_1.1.1.2
 
@@ -177,12 +190,23 @@
       - notimplemented
 
 - name: "SCORED | 1.1.1.7 | PATCH | Ensure mounting of udf filesystems is disabled"
-  lineinfile:
-      dest: /etc/modprobe.d/CIS.conf
-      regexp: "^(#)?install udf(\\s|$)"
-      line: "install udf /bin/true"
-      state: present
-      create: true
+  block:
+    - name: copy udf script
+      vars:
+        application: udf
+      template:
+        src: blacklist.j2
+        dest: /tmp/udf.sh
+        owner: root
+        group: root
+        mode: 0700
+    - name: "AUTOMATED | 1.1.1.7 | PATCH | Ensure mounting of udf filesystems is disabled | Edit modprobe config"
+      shell: sudo bash /tmp/udf.sh
+
+    - name: "AUTOMATED | 1.1.1.7 | PATCH | Ensure mounting of udf filesystems is disabled | Disable udf"
+      modprobe:
+            name: udf
+            state: absent
   when:
       - ubuntu2004cis_rule_1_1_1_7
   tags:
@@ -193,20 +217,6 @@
       - filesystems
       - rule_1.1.1.7
 
-- name: "SCORED | 1.1.1.7 | PATCH | Remove udf module"
-  modprobe:
-      name: udf
-      state: absent
-  when:
-      - ubuntu2004cis_rule_1_1_1_7
-      - not ubuntu2004cis_skip_for_travis
-  tags:
-      - level1
-      - scored
-      - patch
-      - udf
-      - filesystems
-      - rule_1.1.1.7
 
 - name: "SCORED | 1.1.2 | PATCH | Ensure separate partition exists for /tmp | enable and start/restart tmp.mount"
   copy:
@@ -952,8 +962,8 @@
       - notimplemented
 
 - name: "SCORED | 1.7.1.4 | PATCH |  Ensure all AppArmor Profiles are enforcing"
-  command: /bin/true
-  changed_when: false
+  command: aa-enforce /etc/apparmor.d/*
+  failed_when: false
   when:
       - ubuntu2004cis_rule_1_7_1_4
   tags:
