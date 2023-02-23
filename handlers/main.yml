@@ -94,7 +94,7 @@
 
 - name: load audit rules
   become: true
-  command: /sbin/augenrules --load
+  command: /bin/true
   when:
       - not ubuntu2004cis_skip_for_travis
   tags:
