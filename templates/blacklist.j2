@@ -7,6 +7,11 @@ if ! modprobe -n -v $l_mname | grep -P -- '^h*install /bin/(true|false)'; then
   echo "install $l_mname /bin/true" > /etc/modprobe.d/$l_mname.conf
 fi
 
+if modprobe -n -v $l_mname | grep -P -- '^h*install /bin/false'; then 
+  echo " - setting module: $l_mname to be not loadable"
+  echo "install $l_mname /bin/true" > /etc/modprobe.d/$l_mname.conf
+fi
+
 if ! lsmod | grep '$l_mname' > /dev/null 2>&1; then 
   echo " - unloading module $l_mname"
   modprobe -r $l_mname
