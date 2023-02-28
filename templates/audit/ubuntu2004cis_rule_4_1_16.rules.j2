@@ -5,7 +5,10 @@
 
 -w /sbin/modprobe -p x -k modules
 
--a always,exit -F arch=b64 -S init_module -S delete_module -k modules
+-a always,exit -F arch=b32 -S delete_module -F key=modules
 
--a always,exit -F arch=b32 -S init_module -S delete_module -k modules
+-a always,exit -F arch=b32 -S init_module -F key=modules
 
+-a always,exit -F arch=b64 -S init_module -F key=modules
+
+-a always,exit -F arch=b64 -S delete_module -F key=modules
